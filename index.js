@@ -358,7 +358,7 @@ document.addEventListener('DOMContentLoaded', e => {
     }
 
 
-    fetch('http://localhost:3000/images')
+    fetch('https://slidey-pix-backend.herokuapp.com/images')
       .then(resp => resp.json())
       .then(json => renderImages(json, category));
   };
@@ -388,7 +388,7 @@ document.addEventListener('DOMContentLoaded', e => {
       squareImg(image.id, image.img_url, image.category.name);
     } else {
       let userCompleted = false;
-      fetch('http://localhost:3000/user_images')
+      fetch('https://slidey-pix-backend.herokuapp.com/user_images')
         .then(resp => resp.json())
         .then(json => {
           for (let userImage of json) {
@@ -562,7 +562,7 @@ document.addEventListener('DOMContentLoaded', e => {
 
 
     const solvedPuzzleMovesAndId = []
-    fetch(`http://localhost:3000/users/${userId}`)
+    fetch(`https://slidey-pix-backend.herokuapp.com/users/${userId}`)
       .then(response => response.json())
       .then(user => {
         for (let userImage of user.user_images) {
@@ -605,14 +605,14 @@ document.addEventListener('DOMContentLoaded', e => {
       body: JSON.stringify(userObj)
     }
 
-    fetch('http://localhost:3000/users', options)
+    fetch('https://slidey-pix-backend.herokuapp.com/users', options)
       .then(resp => resp.json())
       .then(json => login(json))
   }
 
   const addNewImage = el => {
     clearContent()
-    fetch('http://localhost:3000/categories')
+    fetch('https://slidey-pix-backend.herokuapp.com/categories')
       .then(resp => resp.json())
       .then(json => {
         let categoryId;
@@ -635,7 +635,7 @@ document.addEventListener('DOMContentLoaded', e => {
           body: JSON.stringify(imgObj)
         }
 
-        fetch("http://localhost:3000/images", options)
+        fetch("https://slidey-pix-backend.herokuapp.com/images", options)
           .then(response => response.json())
           .then(json => {
             console.log(json)
@@ -711,7 +711,7 @@ document.addEventListener('DOMContentLoaded', e => {
       body: JSON.stringify(userImagesObj)
     };
 
-    fetch('http://localhost:3000/user_images/', options)
+    fetch('https://slidey-pix-backend.herokuapp.com/user_images/', options)
       .then(response => response.json())
       .then(json => {
         scramblePos = json.image.scramble_pos
@@ -842,7 +842,7 @@ document.addEventListener('DOMContentLoaded', e => {
       const userImageId = document.querySelector('.grid-container').dataset.userImageId;
       const latestMoves = parseInt(document.querySelector('#moves-counter').innerText, 10);
 
-      fetch(`http://localhost:3000/user_images/${userImageId}`)
+      fetch(`https://slidey-pix-backend.herokuapp.com/user_images/${userImageId}`)
         .then(response => response.json())
         .then(json => {
           if ((json.moves > 0 && latestMoves < json.moves) || json.moves == 0) {
@@ -855,7 +855,7 @@ document.addEventListener('DOMContentLoaded', e => {
               headers: headers,
               body: JSON.stringify(userImageObj)
             }
-            fetch(`http://localhost:3000/user_images/${userImageId}`, options)
+            fetch(`https://slidey-pix-backend.herokuapp.com/user_images/${userImageId}`, options)
               .then(response => response.json())
               .then(json => endOfGame(gridSize));
           } else {
@@ -868,7 +868,7 @@ document.addEventListener('DOMContentLoaded', e => {
   const endOfGame = (gridSize) => {
     const imgId = document.querySelector('.grid-container').dataset.imgId;
 
-    fetch('http://localhost:3000/user_images')
+    fetch('https://slidey-pix-backend.herokuapp.com/user_images')
       .then(response => response.json())
       .then(json => {
         const leaderboard = document.querySelector('#modal-tbody');
@@ -916,7 +916,7 @@ document.addEventListener('DOMContentLoaded', e => {
     const leaderboard = document.querySelector('#ul-tbody');
     removeChildren(leaderboard);
 
-    fetch('http://localhost:3000/user_images')
+    fetch('https://slidey-pix-backend.herokuapp.com/user_images')
       .then(response => response.json())
       .then(json => {
         const results = [];
