@@ -1,18 +1,21 @@
-# slidey-pix-frontend
+***Slidey Pix***
 
-* sidebar
-* accessing a puzzle you've previously completed
-* - expanding the grid
-* - resize the puzzle
-* - can't move the pieces until it's scrambled
+**Overview**
 
-// TODOS
-* after solving puzzle, modal leaderboard very screwy -- solved!
-* after solving puzzle, can't click on most of sidebar -- solved!
+*Slidey Pix* allows you to create and solve the classic 15 puzzle to reveal a customizable image. The back end is Ruby on Rails and the front end is vanilla JavaScript. This repo contains the front end code; the back end is [here](https://github.com/alerner1/slidey-pix-backend).
 
-* specific scrambles for each image -- DONE
-* custom grid size
+**Front End**
 
+The front end for *Slidey Pix* is written mainly in JavaScript, using HTML Canvas for image manipulation. Styling is heavily customized Bootstrap.
 
-// thursday todos
-* probably don't need a leaderboard for custom puzzles
+**Demo**
+
+A demo for this app can be found [here](https://www.loom.com/share/a62bb169c0f841b8944acebd8d9c0f19).
+
+**Try It Live**
+
+[Try out the app](https://slidey-pix.herokuapp.com) for yourself to test your puzzle-solving skills.
+
+**Credit**
+
+This app was written in collaboration with Rachael Ghorbani.
